@@ -19,6 +19,10 @@ with:
 
 **Required** Swift action to run.
 
+### `configuration`
+
+Debug or release mode.
+
 ### `use_xcodebuild`
 
 Using xcodebuild to build project. Default `false`.
