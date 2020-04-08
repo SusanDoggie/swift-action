@@ -1,4 +1,6 @@
 #!/bin/bash
 set -e
 
-swift test -c release --enable-test-discovery
+CONFIGURATION=${CONFIGURATION:-release}
+
+swift test -c ${CONFIGURATION} --enable-test-discovery
