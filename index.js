@@ -7,7 +7,12 @@ function env_variable(name) {
 }
 
 const action = core.getInput("action");
+const configuration = env_variable("configuration");
 const use_xcodebuild = env_variable("use_xcodebuild");
+
+if (configuration) {
+  core.exportVariable('CONFIGURATION', configuration);
+}
 
 if (use_xcodebuild) {
   
