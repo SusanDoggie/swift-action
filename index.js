@@ -3,7 +3,7 @@ const exec = require("@actions/exec");
 
 function env_variable(name) {
   const val = core.getInput(name);
-  return val ? val : process.env[name]?.trim() || '';
+  return (val ? val : process.env[name].trim() || '').trim();
 }
 
 const action = core.getInput("action");
