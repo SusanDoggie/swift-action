@@ -6,7 +6,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Run
+    - name: Build
+      uses: ./
+      with:
+        action: build
+    - name: Test
       uses: ./
       with:
         action: test
