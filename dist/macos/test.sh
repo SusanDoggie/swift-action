@@ -7,7 +7,7 @@ if [ "${USE_XCOEBUILD}" = true ] ; then
   DESTINATION=${DESTINATION:-'platform=macOS'}
   ENABLE_CODECOV=${DESTINATION:-false}
 
-  XCODEBUILD_CONFIG: "-configuration Release -sdk ${SDK}"
+  XCODEBUILD_CONFIG="-configuration Release -sdk ${SDK}"
   SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
 
   for SCHEME in ${SCHEMES}; do
