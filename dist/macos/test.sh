@@ -1,17 +1,6 @@
 #!/bin/bash
 set -e
 
-WORKING_DIR=$PWD
-
-if [ ! -e "${WORKING_DIR}/Tests" ]; then
-  echo ">> No test cases found."
-  exit 0
-fi
-
-if [ -e "${WORKING_DIR}/.github/workflows/before_tests.sh" ]; then
-  bash ${WORKING_DIR}/.github/workflows/before_tests.sh
-fi
-
 SDK=${SDK:-macosx}
 DESTINATION=${DESTINATION:-'platform=macOS'}
 ENABLE_CODECOV=${DESTINATION:-false}
