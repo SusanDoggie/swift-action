@@ -37,4 +37,4 @@ Enable code coverage. Default `false`.
 
 ## License
 
-Doggie is licensed under the [MIT license](LICENSE)
+swift-action is licensed under the [MIT license](LICENSE)
