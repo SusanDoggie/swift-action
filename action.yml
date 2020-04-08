@@ -21,7 +21,7 @@ inputs:
     required: false
 branding:
   color: 'orange' 
-  icon: 'terminal'
+  icon: 'code'
 runs:
   using: 'node12'
   main: 'index.js'
