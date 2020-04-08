@@ -5,14 +5,18 @@ if [ "${USE_XCOEBUILD}" = true ] ; then
 
   SDK=${SDK:-macosx}
   DESTINATION=${DESTINATION:-'platform=macOS'}
+  XCODEBUILD_CONFIG="-configuration Release -sdk ${SDK}"
   
   if [ "${ENABLE_CODECOV}" = true ] ; then
     ENABLE_CODECOV=YES
   else
     ENABLE_CODECOV=NO
   fi
-
-  XCODEBUILD_CONFIG="-configuration Release -sdk ${SDK}"
+  
+  echo "SDK: ${SDK}"
+  echo "DESTINATION: ${DESTINATION}"
+  echo "ENABLE_CODECOV: ${ENABLE_CODECOV}"
+  
   SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
 
   for SCHEME in ${SCHEMES}; do
