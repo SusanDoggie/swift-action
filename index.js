@@ -7,6 +7,8 @@ const use_xcodebuild = core.getInput("use_xcodebuild");
 
 if (use_xcodebuild) {
   
+  core.exportVariable('USE_XCODEBUILD', 'true');
+  
   const sdk = core.getInput("sdk");
   const destination = core.getInput("destination");
   const enable_codecov = core.getInput("enable_codecov");
