@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ "${USE_XCOEBUILD}" = true ] ; then
+if [ "${USE_XCODEBUILD}" = true ] ; then
 
   SDK=${SDK:-macosx}
   DESTINATION=${DESTINATION:-'platform=macOS'}
