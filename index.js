@@ -1,17 +1,21 @@
 const core = require("@actions/core");
 const exec = require("@actions/exec");
 
-const action = core.getInput("action");
+function env_variable(name) {
+  const val = core.getInput(name);
+  return val ? val : process.env[name]?.trim() || '';
+}
 
-const use_xcodebuild = core.getInput("use_xcodebuild");
+const action = core.getInput("action");
+const use_xcodebuild = env_variable("use_xcodebuild");
 
 if (use_xcodebuild) {
   
   core.exportVariable('USE_XCODEBUILD', 'true');
   
-  const sdk = core.getInput("sdk");
-  const destination = core.getInput("destination");
-  const enable_codecov = core.getInput("enable_codecov");
+  const sdk = env_variable("sdk");
+  const destination = env_variable("destination");
+  const enable_codecov = env_variable("enable_codecov");
   
   if (sdk) { core.exportVariable('SDK', sdk); }
   if (destination) { core.exportVariable('DESTINATION', destination); }
