@@ -3,4 +3,4 @@ const exec = require("@actions/exec");
 
 const action = core.getInput("action");
 
-exec.exec(`${action}.sh`);
+exec.exec(`./${action}.sh`);
