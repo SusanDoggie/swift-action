@@ -10,7 +10,7 @@ if [ "${USE_XCOEBUILD}" = true ] ; then
 
   for SCHEME in ${SCHEMES}; do
     echo "Building scheme ${SCHEME}"
-    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} | xcpretty -f `xcpretty-travis-formatter`
+    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME}
   done
 
 else
