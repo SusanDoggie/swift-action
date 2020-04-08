@@ -4,6 +4,9 @@ inputs:
   action:
     description: 'script to run'
     required: true
+  configuration:
+    description: 'debug or release mode'
+    required: false
   use_xcodebuild:
     description: 'using xcodebuild'
     required: false
