@@ -1,0 +1,12 @@
+name: 'swift'
+description: 'Swift builder'
+inputs: 
+  action:
+    description: 'script to run'
+    required: true 
+branding:
+  color: 'orange' 
+  icon: 'terminal'
+runs:
+  using: 'node12'
+  main: 'index.js'
