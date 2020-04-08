@@ -11,9 +11,9 @@ if (use_xcodebuild) {
   const destination = core.getInput("destination");
   const enable_codecov = core.getInput("enable_codecov");
   
-  core.exportVariable('SDK', sdk);
-  core.exportVariable('DESTINATION', destination);
-  core.exportVariable('ENABLE_CODECOV', enable_codecov);
+  if (sdk) { core.exportVariable('SDK', sdk); }
+  if (destination) { core.exportVariable('DESTINATION', destination); }
+  if (enable_codecov) { core.exportVariable('ENABLE_CODECOV', enable_codecov); }
   
 }
 
