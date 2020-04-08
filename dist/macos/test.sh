@@ -1,11 +1,13 @@
 #!/bin/bash
 set -e
 
+CONFIGURATION=${CONFIGURATION:-release}
+
 if [ "${USE_XCODEBUILD}" = true ] ; then
 
   SDK=${SDK:-macosx}
   DESTINATION=${DESTINATION:-'platform=macOS'}
-  XCODEBUILD_CONFIG="-configuration Release -sdk ${SDK}"
+  XCODEBUILD_CONFIG="-configuration ${CONFIGURATION} -sdk ${SDK}"
   
   if [ "${ENABLE_CODECOV}" = true ] ; then
     ENABLE_CODECOV=YES
@@ -26,5 +28,5 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
   done
 
 else
-  swift test -c release --enable-test-discovery
+  swift test -c ${CONFIGURATION} --enable-test-discovery
 fi
