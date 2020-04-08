@@ -1,4 +1,4 @@
-name: 'swift'
+name: 'swift builder'
 description: 'Swift builder'
 inputs: 
   action:
