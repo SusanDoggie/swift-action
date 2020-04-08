@@ -3,7 +3,19 @@ description: 'Swift builder'
 inputs: 
   action:
     description: 'script to run'
-    required: true 
+    required: true
+  use_xcodebuild:
+    description: 'using xcodebuild'
+    required: false
+  sdk:
+    description: 'select sdk to build'
+    required: false
+  destination:
+    description: 'destination for test'
+    required: false
+  enable_codecov:
+    description: 'enable codecov'
+    required: false
 branding:
   color: 'orange' 
   icon: 'terminal'
