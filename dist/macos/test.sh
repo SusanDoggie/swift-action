@@ -15,6 +15,7 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
     ENABLE_CODECOV=NO
   fi
   
+  echo "CONFIGURATION: ${CONFIGURATION}"
   echo "SDK: ${SDK}"
   echo "DESTINATION: ${DESTINATION}"
   echo "ENABLE_CODECOV: ${ENABLE_CODECOV}"
