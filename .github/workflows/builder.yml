@@ -19,6 +19,9 @@ jobs:
             destination: 'platform=tvOS Simulator,name=Apple TV 4K'
     env: 
       use_xcodebuild: true
+      sdk: ${{ matrix.sdk }}
+      destination: ${{ matrix.destination }}
+      enable_codecov: ${{ matrix.enable_codecov }}
     steps:
     - uses: actions/checkout@v1
       with:
