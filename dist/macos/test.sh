@@ -12,8 +12,8 @@ if [ "${USE_XCOEBUILD}" = true ] ; then
 
   for SCHEME in ${SCHEMES}; do
     echo "Testing scheme ${SCHEME}"
-    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} build-for-testing -skipUnavailableActions | xcpretty -f `xcpretty-travis-formatter`
-    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} -destination "${DESTINATION}" test-without-building -skipUnavailableActions -enableCodeCoverage ${ENABLE_CODECOV} | xcpretty -f `xcpretty-travis-formatter`
+    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} build-for-testing -skipUnavailableActions
+    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} -destination "${DESTINATION}" test-without-building -skipUnavailableActions -enableCodeCoverage ${ENABLE_CODECOV}
   done
 
 else
