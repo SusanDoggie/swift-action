@@ -1,10 +1,12 @@
 #!/bin/bash
 set -e
 
+CONFIGURATION=${CONFIGURATION:-release}
+
 if [ "${USE_XCODEBUILD}" = true ] ; then
 
   SDK=${SDK:-macosx}
-  XCODEBUILD_CONFIG="-configuration Release -sdk ${SDK}"
+  XCODEBUILD_CONFIG="-configuration ${CONFIGURATION} -sdk ${SDK}"
   
   echo "SDK: ${SDK}"
   
@@ -16,5 +18,5 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
   done
 
 else
-  swift build -c release --enable-test-discovery
+  swift build -c ${CONFIGURATION} --enable-test-discovery
 fi
