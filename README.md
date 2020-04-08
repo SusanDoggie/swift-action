@@ -5,10 +5,10 @@
 ## Usage
 
 ```
-uses: SusanDoggie/swift-action@master
+uses: SusanDoggie/swift-action@v1
 with:
   action: build
-uses: SusanDoggie/swift-action@master
+uses: SusanDoggie/swift-action@v1
 with:
   action: test
 ```
