@@ -17,6 +17,8 @@ jobs:
           - name: tvOS
             sdk: appletvsimulator
             destination: 'platform=tvOS Simulator,name=Apple TV 4K'
+    env: 
+      use_xcodebuild: true
     steps:
     - uses: actions/checkout@v1
       with:
@@ -25,18 +27,10 @@ jobs:
       uses: ./
       with:
         action: build
-        use_xcodebuild: true
-        sdk: ${{ matrix.sdk }}
-        destination: ${{ matrix.destination }}
-        enable_codecov: ${{ matrix.enable_codecov }}
     - name: Run tests
       uses: ./
       with:
         action: test
-        use_xcodebuild: true
-        sdk: ${{ matrix.sdk }}
-        destination: ${{ matrix.destination }}
-        enable_codecov: ${{ matrix.enable_codecov }}
     - uses: codecov/codecov-action@v1
       if: ${{ matrix.enable_codecov }}
   macos_swiftpm:
