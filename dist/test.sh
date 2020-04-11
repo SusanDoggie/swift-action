@@ -8,16 +8,9 @@ if [ ! -e "${WORKING_DIR}/Tests" ]; then
   exit 0
 fi
 
-SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo ">> uname: $(uname)"
-if [ "$(uname)" == "Darwin" ]; then
-  SYSTEM="macos"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  SYSTEM="linux"
-else
-  echo ">> Unsupported platform!"
-  exit 1
-fi
+SYSTEM="$(uname)"
 
 bash ${SCRIPT_DIR}/${SYSTEM}/test.sh
