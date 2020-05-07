@@ -11,17 +11,17 @@ function is_package {
   fi
 }
 
-echo "Installing git\n"
+echo "Installing git"
 if ! is_package git; then
   apt-get install -y git
 fi
 
-echo "Installing zlib\n"
+echo "Installing zlib"
 if ! is_package zlib1g-dev; then
   apt-get install -y zlib1g-dev
 fi
 
-echo "Installing libxml2\n"
+echo "Installing libxml2"
 if ! is_package libxml2; then
   apt-get install -y libxml2
 fi
