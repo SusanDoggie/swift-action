@@ -11,17 +11,17 @@ function is_package {
   fi
 }
 
-echo "Installing git\n"
+echo "Installing git"
 if ! is_package git; then
   yum install -y git
 fi
 
-echo "Installing zlib\n"
+echo "Installing zlib"
 if ! is_package zlib-devel; then
   yum install -y zlib-devel
 fi
 
-echo "Installing libxml2\n"
+echo "Installing libxml2"
 if ! is_package libxml2; then
   yum install -y libxml2
 fi
