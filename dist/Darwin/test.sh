@@ -7,7 +7,6 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
 
   SDK=${SDK:-macosx}
   DESTINATION=${DESTINATION:-'platform=macOS'}
-  XCODEBUILD_CONFIG="-configuration ${CONFIGURATION} -sdk ${SDK}"
   
   if [ "${ENABLE_CODECOV}" = true ] ; then
     ENABLE_CODECOV=YES
@@ -24,8 +23,8 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
 
   for SCHEME in ${SCHEMES}; do
     echo "Testing scheme ${SCHEME}"
-    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} build-for-testing -skipUnavailableActions
-    xcodebuild ${XCODEBUILD_CONFIG} -scheme ${SCHEME} -destination "${DESTINATION}" test-without-building -skipUnavailableActions -enableCodeCoverage ${ENABLE_CODECOV}
+    xcodebuild -scheme ${SCHEME} -configuration ${CONFIGURATION} -sdk ${SDK} -destination "${DESTINATION}" build-for-testing -skipUnavailableActions
+    xcodebuild -scheme ${SCHEME} -configuration ${CONFIGURATION} -sdk ${SDK} -destination "${DESTINATION}" test-without-building -skipUnavailableActions -enableCodeCoverage ${ENABLE_CODECOV}
   done
 
 else
