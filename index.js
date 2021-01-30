@@ -14,7 +14,7 @@ if (configuration) {
   core.exportVariable('CONFIGURATION', configuration);
 }
 
-if (use_xcodebuild) {
+if (use_xcodebuild == 'true') {
   
   core.exportVariable('USE_XCODEBUILD', 'true');
   
