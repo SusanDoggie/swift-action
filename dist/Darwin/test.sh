@@ -19,8 +19,10 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
   echo "DESTINATION: ${DESTINATION}"
   echo "ENABLE_CODECOV: ${ENABLE_CODECOV}"
   
-  SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
-
+  if [ -z "{$SCHEMES}" ] ; then
+    SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
+  fi
+  
   for SCHEME in ${SCHEMES}; do
     echo "Testing scheme ${SCHEME}"
     xcodebuild -scheme ${SCHEME} -configuration ${CONFIGURATION} -sdk ${SDK} -destination "${DESTINATION}" build-for-testing -skipUnavailableActions
