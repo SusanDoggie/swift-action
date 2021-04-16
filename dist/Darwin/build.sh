@@ -11,8 +11,10 @@ if [ "${USE_XCODEBUILD}" = true ] ; then
   echo "CONFIGURATION: ${CONFIGURATION}"
   echo "SDK: ${SDK}"
   echo "DESTINATION: ${DESTINATION}"
-  
-  SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
+
+  if [ -z "{$SCHEMES}" ] ; then
+    SCHEMES=$(xcodebuild -list | grep --after-context=-1 '^\s*Schemes:' | tail -n +2 | xargs)
+  fi
   
   for SCHEME in ${SCHEMES}; do
     echo "Building scheme ${SCHEME}"
