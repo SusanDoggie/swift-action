@@ -21,10 +21,12 @@ if (use_xcodebuild == 'true') {
   const sdk = env_variable("sdk");
   const destination = env_variable("destination");
   const enable_codecov = env_variable("enable_codecov");
+  const schemes = env_variable("schemes");
   
   if (sdk) { core.exportVariable('SDK', sdk); }
   if (destination) { core.exportVariable('DESTINATION', destination); }
   if (enable_codecov) { core.exportVariable('ENABLE_CODECOV', enable_codecov); }
+  if (schemes) { core.exportVariable('SCHEMES', schemes); }
   
 }
 
